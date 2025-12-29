@@ -9,9 +9,9 @@ spec:
       name: network-simulator-project-2
     name: netowrk_crawler
     desc: "Microservice for crawling network data"
-    repos:
-      - type: codehub
-        repoIdRef:
-          name: network-crawler-repo-1
-        branch: master
-        language: python
+    # repos:
+    #   - type: codehub
+    #     repoIdRef:
+    #       name: network-crawler-repo-1
+    #     branch: master
+    #     language: python
