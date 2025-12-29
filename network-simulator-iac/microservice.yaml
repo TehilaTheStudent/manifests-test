@@ -1,0 +1,17 @@
+apiVersion: pipeline.codearts.crossplane.io/v1alpha1
+kind: Microservice
+metadata:
+  name: network-crawler-microservice
+spec:
+  forProvider:
+    region: ap-southeast-3
+    projectIdRef:
+      name: network-simulator-project
+    name: netowrk_crawler
+    desc: "Microservice for crawling network data"
+    repos:
+      - type: codehub
+        repoIdRef:
+          name: network-crawler-repo
+        branch: master
+        language: python
