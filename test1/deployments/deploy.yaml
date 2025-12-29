@@ -33,7 +33,7 @@ spec:
             command:
             - /bin/sh
             - -c
-            - "ls /tmp/healthy"  # The command to run
+            - "exit 1"  # The command to run
           initialDelaySeconds: 5  # Wait 5s before first check
           periodSeconds: 10       # How often to run the check
           timeoutSeconds: 1       # How long to wait for the command to finish
@@ -76,7 +76,7 @@ spec:
             command:
             - /bin/sh
             - -c
-            - "ls /tmp/healthy"  # The command to run
+            - "exit 1"  # The command to run
           initialDelaySeconds: 5  # Wait 5s before first check
           periodSeconds: 10       # How often to run the check
           timeoutSeconds: 1       # How long to wait for the command to finish
