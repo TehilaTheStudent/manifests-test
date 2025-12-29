@@ -91,3 +91,4 @@ spec:
           - type: push
             enable: true
             excludeBranches: ["master"]
+---

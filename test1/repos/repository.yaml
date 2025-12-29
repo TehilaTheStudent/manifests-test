@@ -1,0 +1,51 @@
+apiVersion: repo.codearts.crossplane.io/v1alpha1
+kind: Repository
+metadata:
+  name: network-crawler-repo
+spec:
+  forProvider:
+    region: ap-southeast-3
+    projectIdRef:
+      name: network-simulator-project
+    name: netowrk-crawler
+    description: "Repository for the network-crawler component"
+    enableReadme: 1
+---
+apiVersion: repo.codearts.crossplane.io/v1alpha1
+kind: Repository
+metadata:
+  name: network-crawler-repo
+spec:
+  forProvider:
+    region: ap-southeast-3
+    projectIdRef:
+      name: network-simulator-project
+    name: netowrk-crawler
+    description: "Repository for the network-crawler component"
+    enableReadme: 1
+---
+apiVersion: repo.codearts.crossplane.io/v1alpha1
+kind: Repository
+metadata:
+  name: repo2
+spec:
+  forProvider:
+    region: ap-southeast-3
+    projectIdRef:
+      name: network-simulator-project
+    name: netowrk-crawler
+    description: "Repository for the network-crawler component"
+    enableReadme: 1
+---
+apiVersion: repo.codearts.crossplane.io/v1alpha1
+kind: Repository
+metadata:
+  name: repo3
+spec:
+  forProvider:
+    region: ap-southeast-3
+    projectIdRef:
+      name: network-simulator-project
+    name: netowrk-crawler
+    description: "Repository for the network-crawler component"
+    enableReadme: 1
