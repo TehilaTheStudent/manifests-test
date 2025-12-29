@@ -39,7 +39,7 @@ spec:
           timeoutSeconds: 1       # How long to wait for the command to finish
           failureThreshold: 3     # How many times to fail before restarting      
       # Optional: Controls how quickly Kubernetes tries to restart the failing pod
-      restartPolicy: Never
+      restartPolicy: Always
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -82,4 +82,4 @@ spec:
           timeoutSeconds: 1       # How long to wait for the command to finish
           failureThreshold: 3     # How many times to fail before restarting         
       # Optional: Controls how quickly Kubernetes tries to restart the failing pod
-      restartPolicy: Never      
+      restartPolicy: Always      
