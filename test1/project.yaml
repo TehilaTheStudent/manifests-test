@@ -1,4 +1,4 @@
-apiVersion: projectman.codearts.crossplane.io/v1alpha1
+apiVersion: projectman.codearts.crossplafffffne.io/v1alpha1
 kind: Project
 metadata:
   name: network-simulator-project
