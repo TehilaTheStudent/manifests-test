@@ -6,7 +6,7 @@ spec:
   forProvider:
     region: ap-southeast-3
     projectIdRef:
-      name: network-simulator-project
+      name: network-simulator-project-2
     name: netowrk_crawler
     desc: "Microservice for crawling network data"
     repos:
