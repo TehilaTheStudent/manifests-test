@@ -27,9 +27,19 @@ spec:
             sleep 3
             echo "Crashing now with exit code 1"
             exit 1
-      
+        # THE PROBE
+        livenessProbe:
+          exec:
+            command:
+            - /bin/sh
+            - -c
+            - "ls /tmp/healthy"  # The command to run
+          initialDelaySeconds: 5  # Wait 5s before first check
+          periodSeconds: 10       # How often to run the check
+          timeoutSeconds: 1       # How long to wait for the command to finish
+          failureThreshold: 3     # How many times to fail before restarting      
       # Optional: Controls how quickly Kubernetes tries to restart the failing pod
-      restartPolicy: Always
+      restartPolicy: Never
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -60,6 +70,16 @@ spec:
             sleep 3
             echo "Crashing now with exit code 1"
             exit 1
-      
+        # THE PROBE
+        livenessProbe:
+          exec:
+            command:
+            - /bin/sh
+            - -c
+            - "ls /tmp/healthy"  # The command to run
+          initialDelaySeconds: 5  # Wait 5s before first check
+          periodSeconds: 10       # How often to run the check
+          timeoutSeconds: 1       # How long to wait for the command to finish
+          failureThreshold: 3     # How many times to fail before restarting         
       # Optional: Controls how quickly Kubernetes tries to restart the failing pod
-      restartPolicy: Always      
+      restartPolicy: Never      
