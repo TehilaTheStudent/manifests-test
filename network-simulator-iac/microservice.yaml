@@ -12,6 +12,6 @@ spec:
     repos:
       - type: codehub
         repoIdRef:
-          name: network-crawler-repo
+          name: network-crawler-repo-1
         branch: master
         language: python

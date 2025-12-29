@@ -1,7 +1,20 @@
 apiVersion: repo.codearts.crossplane.io/v1alpha1
 kind: Repository
 metadata:
-  name: network-crawler-repo
+  name: network-crawler-repo-1
+spec:
+  forProvider:
+    region: ap-southeast-3
+    projectIdRef:
+      name: network-simulator-project
+    name: netowrk-crawler
+    description: "Repository for the network-crawler component"
+    enableReadme: 1
+---
+apiVersion: repo.codearts.crossplane.io/v1alpha1
+kind: Repository
+metadata:
+  name: network-crawler-repo-2
 spec:
   forProvider:
     region: ap-southeast-3
