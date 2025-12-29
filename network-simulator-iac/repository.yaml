@@ -7,7 +7,7 @@ spec:
     region: ap-southeast-3
     projectIdRef:
       name: network-simulator-project
-    name: netowrk-crawler
+    name: netowrk-crawler-1
     description: "Repository for the network-crawler component"
     enableReadme: 1
 ---
@@ -20,6 +20,6 @@ spec:
     region: ap-southeast-3
     projectIdRef:
       name: network-simulator-project
-    name: netowrk-crawler
+    name: netowrk-crawler-2
     description: "Repository for the network-crawler component"
     enableReadme: 1
