@@ -1,0 +1,93 @@
+apiVersion: pipeline.codearts.crossplane.io/v1alpha1
+kind: Pipeline
+metadata:
+  name: network-crawler-ci-pipeline
+spec:
+  forProvider:
+    region: ap-southeast-3
+    projectIdRef:
+      name: network-simulator-project
+    name: network-crawler-ci
+    description: "CI pipeline for network-crawler microservice"
+    definition:
+      stages:
+        - name: Git Clone
+          sequence: 0
+          identifier: git-clone
+          pre:
+            - task: official_devcloud_autoTrigger
+          jobs:
+            - name: Git Clone
+              identifier: git-clone-job
+              sequence: 0
+              condition: "${{ default() }}"
+              strategy:
+                selectStrategy: selected
+              resource:
+                type: system
+                arch: x86
+              steps:
+                - name: Git Clone
+                  identifier: git-clone-step
+                  sequence: 0
+                  task: official_git_clone
+                  officialTaskVersion: 0.0.4
+                  runtimeAttribution: agent
+                  inputs:
+                    - key: SYSTEM_CLONE_SINGLE_BRANCH
+                      value: true
+                    - key: OFFICIAL_GIT_CLONE_SSLVERIFY
+                      value: false
+                    - key: SYSTEM_CLONE_DEPTH
+                      value: 5
+                    - key: SYSTEM_CLONE_SUBMODULE_DEPTH
+                      value: 0
+        - name: Build Image
+          sequence: 1
+          identifier: build-image
+          dependsOn: ["git-clone"]
+          pre:
+            - task: official_devcloud_autoTrigger
+          jobs:
+            - name: Build Image
+              identifier: build-image-job
+              sequence: 0
+              condition: "${{ default() }}"
+              strategy:
+                selectStrategy: selected
+              resource:
+                type: system
+                arch: x86
+              steps:
+                - name: Build Image
+                  identifier: build-image-step
+                  sequence: 0
+                  task: official_devcloud_cloudBuild
+                  officialTaskVersion: 0.0.23
+                  runtimeAttribution: agent
+                  inputs:
+                    - key: jobId
+                      valueFromBuildTaskIdRef:
+                        name: network-crawler-build-task
+                    - key: __repository__
+                      value: netowrk-crawler
+                    - key: IMAGE_TAG
+                      value: ${PIPELINE_NUMBER}
+                    - key: __sameProject__
+                      value: "true"
+    sources:
+      - type: code
+        params:
+          gitType: codehub
+          codehubIdRef:
+            name: network-crawler-repo
+          defaultBranch: master
+          alias: network_crawler_repo
+    triggers:
+      - repoIdRef:
+          name: network-crawler-repo
+        gitType: codehub
+        events:
+          - type: push
+            enable: true
+            excludeBranches: ["master"]
