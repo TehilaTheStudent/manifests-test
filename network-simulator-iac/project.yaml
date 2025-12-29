@@ -8,3 +8,14 @@ spec:
     projectName: network-simulator
     projectType: scrum
     description: "A project for the simulation network topologies"
+---
+apiVersion: projectman.codearts.crossplane.io/v1alpha1
+kind: Project
+metadata:
+  name: network-simulator-project-2
+spec:
+  forProvider:
+    region: ap-southeast-3
+    projectName: network-simulator-2
+    projectType: scrum
+    description: "A project for the simulation network topologies"
