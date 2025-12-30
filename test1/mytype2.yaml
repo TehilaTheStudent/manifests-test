@@ -5,4 +5,4 @@ metadata:
 spec:
   forProvider:
     status: "Healthy"
-    message: "im super healthy"
+    message: "resource 2: im super healthy"
