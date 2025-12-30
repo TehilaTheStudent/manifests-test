@@ -1,8 +1,8 @@
 apiVersion: sample.codearts.crossplane.io/v1alpha1
 kind: MyType
 metadata:
-  name: example-resource
+  name: example-resource-2
 spec:
   forProvider:
-    status: "Degraded"
+    status: "Unknown"
     message: "Manual intervention required: invalid credentials"
