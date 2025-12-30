@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config-health-check
+  namespace: default
+  labels:
+    app: my-app
+data:
+  # The custom Lua script looks specifically for this "health" key
+  health: |
+    {
+      "status": "Degraded",
+      "message": "Database connection timeout detected in configuration."
+    }
+  
+  # Other actual configuration data can live here side-by-side
+  db.properties: |
+    host=localhost
+    port=5432
