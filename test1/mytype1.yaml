@@ -5,4 +5,4 @@ metadata:
 spec:
   forProvider:
     status: "Degraded"
-    message: "Manual intervention required: invalid credentials"
+    message: "im so degraded"
